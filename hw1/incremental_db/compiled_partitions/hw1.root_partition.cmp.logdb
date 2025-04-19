@@ -1,0 +1,4 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,lpm_mult:Mult0|mult_et01:auto_generated|mac_out1,
+REGISTER_PACKING,REG_PACK_TYPE_FINISHED,ADATA,0,Y[0],Y[0],
+PORT_SWAPPING,PORT_SWAPPING_FINISHED,lpm_mult:Mult0|mult_et01:auto_generated|mac_mult2,
