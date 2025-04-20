@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="hw2">
+		<CBX_INST_ENTRY INSTANCE_NAME="|My_ckt_2|My_ckt_1:U1|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_a6m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|My_ckt_2|My_ckt_1:U1|lpm_mult:Mult0" CBX_FILE_NAME="mult_et01.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
