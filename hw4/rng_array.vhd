@@ -1,0 +1,58 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity rng_array is
+    Port (
+        clk : in STD_LOGIC;
+        rst : in STD_LOGIC;
+        seed : in STD_LOGIC_VECTOR(63 downto 0);
+        enable : in STD_LOGIC;
+        rng_out : out STD_LOGIC_VECTOR(63 downto 0)
+    );
+end rng_array;
+
+architecture Behavioral of rng_array is
+
+    component rng_cell
+        Port (
+            in_a, in_b, in_c, in_d : in STD_LOGIC;
+            out_val : out STD_LOGIC
+        );
+    end component;
+
+    signal cell_out : STD_LOGIC_VECTOR(63 downto 0);
+    signal next_state : STD_LOGIC_VECTOR(63 downto 0);
+
+begin
+
+    gen_cells: for i in 0 to 63 generate
+        constant idx_a : integer := (i - 2 + 64) mod 64; -- -2
+        constant idx_b : integer := (i + 1) mod 64;      -- 1
+        constant idx_c : integer := i;                   -- 0
+        constant idx_d : integer := (i + 2) mod 64;      -- 2
+    begin
+        cell_inst : rng_cell
+            port map (
+                in_a => cell_out(idx_a),
+                in_b => cell_out(idx_b),
+                in_c => cell_out(idx_c),
+                in_d => cell_out(idx_d),
+                out_val => next_state(i)
+            );
+    end generate;
+
+    process(clk, rst)
+    begin
+        if rst = '1' then
+            cell_out <= seed;
+        elsif rising_edge(clk) then
+            if enable = '1' then
+                cell_out <= next_state;
+            end if;
+        end if;
+    end process;
+
+    rng_out <= cell_out;
+
+end Behavioral;

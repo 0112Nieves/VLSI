@@ -1,0 +1,16 @@
+vendor_name = ModelSim
+source_file = 1, D:/00 A-法俯/VLSI/hw4/rng_cell.vhd
+source_file = 1, D:/00 A-法俯/VLSI/hw4/rng_array.vhd
+source_file = 1, rng_tb.vhd
+source_file = 1, D:/00 A-法俯/VLSI/hw4/Tcl_script1.tcl
+source_file = 1, D:/00 A-法俯/VLSI/hw4/db/hw4.cbx.xml
+design_name = rng_cell
+instance = comp, \clk~I , clk, rng_cell, 1
+instance = comp, \in_d~I , in_d, rng_cell, 1
+instance = comp, \in_a~I , in_a, rng_cell, 1
+instance = comp, \in_c~I , in_c, rng_cell, 1
+instance = comp, \in_b~I , in_b, rng_cell, 1
+instance = comp, \out_val~2 , out_val~2, rng_cell, 1
+instance = comp, \rst~I , rst, rng_cell, 1
+instance = comp, \out_val~reg0 , out_val~reg0, rng_cell, 1
+instance = comp, \out_val~I , out_val, rng_cell, 1
